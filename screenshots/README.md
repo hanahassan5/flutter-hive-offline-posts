@@ -1,1 +1,1 @@
-Screenshots are pending capture from a running Flutter device. See the project README for the required scenarios.
+All PNGs are mocked widget-test previews. Replace them with real device captures for submission; the console, API, offline and restart scenarios are not verified by these images.

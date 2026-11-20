@@ -13,28 +13,28 @@ A Flutter posts app that fetches JSONPlaceholder posts, caches them with Hive, a
 ## Data flow
 
 ```text
-INTERNET → API → Hive postsBox → ListView
-                         star tap → favoritesBox → Favorites screen
+INTERNET â†’ API â†’ Hive postsBox â†’ ListView
+                         star tap â†’ favoritesBox â†’ Favorites screen
 ```
 
 ## Project structure
 
 ```text
 lib/
-├── main.dart                     Initialize Hive and launch the app
-├── models/
-│   ├── post_model.dart           Hive model and JSON conversion
-│   └── post_model.g.dart         Hive type adapter
-├── services/
-│   ├── post_service.dart        Fetch and cache posts; offline fallback
-│   └── favorites_service.dart   Save, remove, and listen to favorites
-├── widgets/
-│   └── post_card.dart            Shared post card and star
-└── screens/
-    ├── posts_screen.dart         Posts, refresh, badge and navigation
-    └── favorites_screen.dart     Live favorites list and empty state
+â”œâ”€â”€ main.dart                     Initialize Hive and launch the app
+â”œâ”€â”€ models/
+â”‚   â”œâ”€â”€ post_model.dart           Hive model and JSON conversion
+â”‚   â””â”€â”€ post_model.g.dart         Hive type adapter
+â”œâ”€â”€ services/
+â”‚   â”œâ”€â”€ post_service.dart        Fetch and cache posts; offline fallback
+â”‚   â””â”€â”€ favorites_service.dart   Save, remove, and listen to favorites
+â”œâ”€â”€ widgets/
+â”‚   â””â”€â”€ post_card.dart            Shared post card and star
+â””â”€â”€ screens/
+    â”œâ”€â”€ posts_screen.dart         Posts, refresh, badge and navigation
+    â””â”€â”€ favorites_screen.dart     Live favorites list and empty state
 test/
-└── favorites_test.dart           Hive and widget checks
+â””â”€â”€ favorites_test.dart           Hive and widget checks
 screenshots/                      Evidence captures
 ```
 
@@ -65,18 +65,18 @@ The adapter is included in the project; generation is useful when the model chan
 
 ## Screenshots
 
-The captures below still need to be recorded on a device or emulator.
+These are mocked widget-test previews, not evidence of API access, console output, airplane mode, or persistence after restart. Replace all eight with real device captures for submission.
 
 | # | Feature/Action | Image |
 |---|---|---|
-| 1 | Posts online | [1_posts_online.png](screenshots/1_posts_online.png) |
-| 2 | API console log | [2_console_api.png](screenshots/2_console_api.png) |
-| 3 | Filled stars | [3_stars.png](screenshots/3_stars.png) |
-| 4 | Favorites with items | [4_favorites_screen.png](screenshots/4_favorites_screen.png) |
-| 5 | Empty favorites | [5_empty.png](screenshots/5_empty.png) |
-| 6 | Offline posts and console log | [6_offline_posts.png](screenshots/6_offline_posts.png) |
-| 7 | Favorites after offline restart | [7_offline_favorites.png](screenshots/7_offline_favorites.png) |
-| 8 | Fresh install offline error | [8_no_cache_error.png](screenshots/8_no_cache_error.png) |
+| 1 | Posts online | ![1_posts_online.png](screenshots/1_posts_online.png) |
+| 2 | API console log | ![2_console_api.png](screenshots/2_console_api.png) |
+| 3 | Filled stars | ![3_stars.png](screenshots/3_stars.png) |
+| 4 | Favorites with items | ![4_favorites_screen.png](screenshots/4_favorites_screen.png) |
+| 5 | Empty favorites | ![5_empty.png](screenshots/5_empty.png) |
+| 6 | Offline posts and console log | ![6_offline_posts.png](screenshots/6_offline_posts.png) |
+| 7 | Favorites after offline restart | ![7_offline_favorites.png](screenshots/7_offline_favorites.png) |
+| 8 | Fresh install offline error | ![8_no_cache_error.png](screenshots/8_no_cache_error.png) |
 
 ## Offline test steps
 

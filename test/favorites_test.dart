@@ -18,8 +18,12 @@ void main() {
     await Hive.openBox<Post>('postsBox');
     await Hive.openBox<Post>('favoritesBox');
   });
-  tearDown(() async { await Hive.close(); });
-  tearDownAll(() async { await dir.delete(recursive: true); });
+  tearDown(() async {
+    await Hive.close();
+  });
+  tearDownAll(() async {
+    await dir.delete(recursive: true);
+  });
 
   test('toggle saves a copy and removes it by id', () async {
     final post = Post(id: 1, title: 'Title', body: 'Body', userId: 2);
@@ -31,7 +35,8 @@ void main() {
     expect(service.getFavorites(), hasLength(1));
     final copy = service.getFavorites().single;
     expect(identical(copy, post), isFalse);
-    expect([copy.id, copy.title, copy.body, copy.userId], [1, 'Title', 'Body', 2]);
+    expect(
+        [copy.id, copy.title, copy.body, copy.userId], [1, 'Title', 'Body', 2]);
     await Hive.box<Post>('postsBox').clear();
     expect(service.isFavorite(1), isTrue);
     await service.toggleFavorite(post);
@@ -39,11 +44,10 @@ void main() {
     expect(service.getFavorites(), isEmpty);
   });
 
-  testWidgets('empty state and live favorites removal', (tester) async {
+  testWidgets('empty favorites state', (tester) async {
     await tester.pumpWidget(const MaterialApp(home: FavoritesScreen()));
     expect(find.text('No favorites yet'), findsOneWidget);
-    expect(find.text('Tap the star on any post to save it here.'), findsOneWidget);
-
+    expect(
+        find.text('Tap the star on any post to save it here.'), findsOneWidget);
   });
 }
-
