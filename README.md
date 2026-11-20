@@ -53,7 +53,7 @@ Each post's ID is its key in `favoritesBox`. `put` adds a favorite, `containsKey
 
 ## Getting Started
 
-Install Flutter and a suitable device or emulator. From the project directory:
+Install Flutter and Chrome. From the project directory:
 
 ```sh
 flutter pub get
@@ -65,18 +65,16 @@ The adapter is included in the project; generation is useful when the model chan
 
 ## Screenshots
 
-These are mocked widget-test previews, not evidence of API access, console output, airplane mode, or persistence after restart. Replace all eight with real device captures for submission.
+Tested on Chrome (web) because the Android SDK was not available on the development machine. Offline mode was tested by turning off Wi-Fi and reloading the app; posts and favorites were loaded from Hive (the taskbar shows no network connection).
 
-| # | Feature/Action | Image |
+| # | Feature / Action | Screenshot |
 |---|---|---|
-| 1 | Posts online | ![1_posts_online.png](screenshots/1_posts_online.png) |
-| 2 | API console log | ![2_console_api.png](screenshots/2_console_api.png) |
-| 3 | Filled stars | ![3_stars.png](screenshots/3_stars.png) |
-| 4 | Favorites with items | ![4_favorites_screen.png](screenshots/4_favorites_screen.png) |
-| 5 | Empty favorites | ![5_empty.png](screenshots/5_empty.png) |
-| 6 | Offline posts and console log | ![6_offline_posts.png](screenshots/6_offline_posts.png) |
-| 7 | Favorites after offline restart | ![7_offline_favorites.png](screenshots/7_offline_favorites.png) |
-| 8 | Fresh install offline error | ![8_no_cache_error.png](screenshots/8_no_cache_error.png) |
+| 1 | Posts loaded from the API | ![Posts loaded from the API](screenshots/1_posts_online.png) |
+| 2 | Marking posts as favorites (filled stars + badge count) | ![Marking posts as favorites](screenshots/2_stars.png) |
+| 3 | Favorites screen | ![Favorites screen](screenshots/3_favorites_screen.png) |
+| 4 | Empty state: "No favorites yet" | ![Empty favorites state](screenshots/4_empty.png) |
+| 5 | Offline: posts loaded from Hive after reload | ![Offline posts](screenshots/5_offline_posts.png) |
+| 6 | Offline: favorites still saved after reload | ![Offline favorites](screenshots/6_offline_favorites.png) |
 
 ## Offline test steps
 
