@@ -1,0 +1,7 @@
+analyzer:
+  exclude:
+    - lib/models/post_model.g.dart
+    - build/**
+    - android/**
+    - web/**
+    - windows/**
