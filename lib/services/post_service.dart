@@ -7,10 +7,14 @@ class PostService {
   Future<List<Post>> getPosts() async {
     final box = await Hive.openBox<Post>('postsBox');
     try {
-      final response = await http.get(Uri.parse('https://jsonplaceholder.typicode.com/posts')).timeout(const Duration(seconds: 15));
-      if (response.statusCode != 200) throw Exception('API returned ${response.statusCode}');
+      final response = await http
+          .get(Uri.parse('https://jsonplaceholder.typicode.com/posts'))
+          .timeout(const Duration(seconds: 15));
+      if (response.statusCode != 200)
+        throw Exception('API returned ${response.statusCode}');
       final posts = (jsonDecode(response.body) as List<dynamic>)
-          .map((item) => Post.fromJson(item as Map<String, dynamic>)).toList();
+          .map((item) => Post.fromJson(item as Map<String, dynamic>))
+          .toList();
       await box.clear();
       await box.addAll(posts);
       print('Loaded from API and cached to Hive: ${posts.length}');

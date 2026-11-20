@@ -12,7 +12,11 @@ class Post extends HiveObject {
   @HiveField(3)
   final int userId;
 
-  Post({required this.id, required this.title, required this.body, required this.userId});
+  Post(
+      {required this.id,
+      required this.title,
+      required this.body,
+      required this.userId});
 
   factory Post.fromJson(Map<String, dynamic> json) => Post(
         id: json['id'] as int,

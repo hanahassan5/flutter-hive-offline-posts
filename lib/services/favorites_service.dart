@@ -9,7 +9,13 @@ class FavoritesService {
     if (isFavorite(post.id)) {
       await _box.delete(post.id);
     } else {
-      await _box.put(post.id, Post(id: post.id, title: post.title, body: post.body, userId: post.userId));
+      await _box.put(
+          post.id,
+          Post(
+              id: post.id,
+              title: post.title,
+              body: post.body,
+              userId: post.userId));
     }
   }
 
